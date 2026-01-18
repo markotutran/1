@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo Hacker</title>
+  <style>
+    /* Reset y base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: monospace, monospace;
+      background-color: #000;
+      color: #00ff00;
+      line-height: 1.5;
+      padding: 0 15px 40px;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #000;
+      border-bottom: 2px solid #00ff00;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.7rem;
+      color: #00ff00;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 25px;
+    }
+
+    .menu a {
+      color: #00ff00;
+      text-decoration: none;
+      padding: 8px 15px;
+      border: 1px solid #00ff00;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu a:hover,
+    .menu a:focus {
+      background-color: #003300;
+      outline: none;
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 900px;
+      margin: 80px auto 40px; /* deja espacio para navbar */
+    }
+
+    /* Secciones */
+    section {
+      margin-bottom: 50px;
+      padding-bottom: 25px;
+      border-bottom: 1px dashed #004400;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #00ff00;
+      padding-bottom: 8px;
+      user-select: none;
+    }
+
+    .delito-content {
+      display: flex;
+      gap: 25px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .delito-content img {
+      width: 250px;
+      height: 150px;
+      object-fit: cover;
+      border: 2px solid #00ff00;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .delito-text {
+      flex: 1 1 300px;
+    }
+
+    .delito-text p {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    .btn-info {
+      margin-top: 15px;
+      background: none;
+      border: 1.5px solid #00ff00;
+      color: #00ff00;
+      padding: 8px 18px;
+      cursor: pointer;
+      font-family: monospace;
+      font-size: 1.05rem;
+      border-radius: 5px;
+      transition: background-color 0.25s ease;
+      user-select: none;
+    }
+
+    .btn-info:hover,
+    .btn-info:focus {
+      background-color: #003300;
+      outline: none;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      z-index: 1100;
+      overflow-y: auto;
+      padding: 50px 20px;
+      font-size: 1.1rem;
+      color: #00ff00;
+      font-family: monospace;
+    }
+
+    .modal-content {
+      max-width: 600px;
+      margin: auto;
+      background-color: #000;
+      border: 2px solid #00ff00;
+      border-radius: 8px;
+      padding: 25px 30px;
+      position: relative;
+      box-shadow: 0 0 15px #00ff00;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      border-bottom: 1px solid #00ff00;
+      padding-bottom: 8px;
+      user-select: none;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 30px;
+      color: #00ff00;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #55ff55;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .delito-content {
+        flex-direction: column;
+      }
+      .delito-content img {
+        width: 100%;
+        height: auto;
+      }
+      .container {
+        margin: 80px 15px 40px;
+        padding: 0;
+      }
+    }
+    nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #000;
+  border-bottom: 2px solid #00ff00;
+  display: flex;
+  align-items: center; /* centra verticalmente */
+  justify-content: space-between;
+  padding: 0 30px; /* espacio a los lados */
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+nav img {
+  height: 40px; /* tamaño consistente y sin distorsión */
+  object-fit: contain;
+  user-select: none;
+}
+
+  </style>
+</head>
+<body>
+<nav>
+  <img src="12.jpg" alt="Logo" />
+
+</nav> <br>
+<br><br><h2>SOCIEDAD DEDICADA AL ROBO DE BEBES , VENTA DE ARMAS,EXTORSION  Y ESTAFA EN LINEA CON PAGINAS FALSAS (Todas las personas exhibidas estan involucradas y son familiares)</h2>
+
+<h3>OFRECEMOS LA INFORMACION DE LA SOCIEDAD CRIMINAL ,PARA QUE ESTA LLEGUE A MANOS DE POSIBLES INTERESADOS, A LA SOCIEDAD EN GENERAL, VICTIMAS Y PARA PREVENIR</h3>
+
+<h3>Agradecemos cualquier informacion relevante ,ponemos a su disposicion nuestro correo sindicatoliberta@proton.me (SIN D)</h3>
+
+
+<section id="personas" tabindex="-1">
+  <h2>Volkswagen</h2>
+
+  <div class="personas-grid">
+
+
+    <article class="persona-card">
+      <img src="1/putit.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Pamela Gomez Leal</h3>
+       <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Manzana (Mza):</strong> 46</p>
+<p><strong>Calle:</strong>Julio García 17, 53100 Naucalpan de Juárez, Méx. </p>
+<p><strong>Colonia:</strong> Fracc Ciudad Satelite</p>
+<p><strong>Exterior:</strong> 17</p>
+<p><strong>CURP:</strong> Venezuelhambre </p>
+<p><strong>CVE:</strong> </p>
+      </div>
+    </article>
+     <article class="persona-card">
+      <img src="1/pam.png" alt="Foto de María López" />
+  
+    </article>  
+     <article class="persona-card">
+      <img src="1/pal.png" alt="Foto de María López" />
+  
+    </article>   <article class="persona-card">
+      <img src="1/pame.png" alt="Foto de María López" />
+  
+    </article><article class="persona-card">
+      <img src="1/pamel.png" alt="Foto de María López" />
+  
+    </article>
+
+ <article class="persona-card">
+      <img src="1/zerdas1.jpg" alt="Foto de María López" />
+  
+    </article> 
+     <article class="persona-card">
+      <img src="1/zerdas.jpg" alt="Foto de María López" />
+  
+    </article><article class="persona-card">
+      <img src="1/zerd.jpg" alt="Foto de María López" />
+  
+    </article> <article class="persona-card">
+      <img src="1/zerda.jpg" alt="Foto de María López" />
+  
+    </article>
+   <article class="persona-card">
+      <img src="1/cer.jpg" alt="Foto de María López" />
+  
+    </article> <article class="persona-card">
+      <img src="1/zerdas2.jpg" alt="Foto de María López" />
+  
+    </article>
+     <article class="persona-card">
+      <img src="1/cer.jpg" alt="Foto de María López" />
+  
+    </article>
+    
+
+     <article class="persona-card">
+      <img src="1/cerda.jpg" alt="Foto de María López" />
+  
+    </article>
+
+   
+     <article class="persona-card">
+      <img src="1/cerdas.jpg" alt="Foto de María López" />
+  
+    </article>
+ <article class="persona-card">
+      <img src="1/chu.png" alt="Foto de María López" />
+  
+    </article>
+
+    <article class="persona-card">
+      <img src="1/anz.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>David Ortega Ciorum (Anzzy)</h3>
+       <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Manzana (Mza):</strong> 46</p>
+<p><strong>Calle:</strong>Circuito Novelistas </p>
+<p><strong>Colonia:</strong> Fracc Ciudad Satelite</p>
+<p><strong>Exterior:</strong> 89</p>
+<p><strong>CURP:</strong> OCDE990303HMCRRV02</p>
+<p><strong>CVE:</strong> ORCRDV9903033115H800</p>
+      </div>
+    </article>
+
+
+
+  
+
+
+
+ <article class="persona-card">
+      <img src="1/anzy.jpg" alt="Foto de María López" />
+  <div class="persona-info">
+        <h3>David Ortega velez (Papa de anzzy)</h3>
+       <p><strong>Código Postal (CP):</strong> 53126</p>
+<p><strong>Manzana (Mza):</strong> 46</p>
+<p><strong>Calle:</strong>Francisco Javier Miranda #7</p>
+<p><strong>Colonia:</strong> Fraccionamiento Lomas Verdes 6ta. Sección, Naucalpan de Juárez, Méx</p>
+<p><strong>Exterior:</strong> 7</p>
+<p><strong>CURP:OEVD661216HDFRLV08</strong> </p>
+<p><strong>CVE:ORVLDV66121609H800</strong> </p>
+      </div>
+    </article>
+
+    
+  
+     <article class="persona-card">
+      <img src="1/cerd.jpg" alt="Foto de María López" />
+  
+    </article>
+    
+
+     <article class="persona-card">
+      <img src="1/anzzy.jpg" alt="Foto de María López" />
+  
+    </article>
+
+   
+     <article class="persona-card">
+      <img src="1/jon.jpg" alt="Foto de María López" />
+  
+    </article>
+   
+   
+  
+    <!-- Más tarjetas aquí -->
+  </div>
+</section>
+
+
+
+<section id="personas" tabindex="-1">
+  <h2>Venta de camiones (Generan citas con empresas para comprar camiones y ellos generan citas con terceras personas a las que roban a nombre de la empresa </h2>
+  <div class="personas-grid">
+
+    <article class="persona-card">
+      <img src="1/chow.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>chowi (Atizapan de zaragoza)</h3>
+      
+    </article>
+
+    <article class="persona-card">
+      <img src="1/calogo.jpg" alt="Foto de Juan Pérez" />
+      <div class="persona-info">
+        <h3>abraham (Calogo o negrito)</h3>
+
+      </div>
+    </article>
+<article class="persona-card">
+      <img src="1/zh.png" alt="Foto de Juan Pérez" />
+      <div class="persona-info">
+        <h3>chowi y zhay </h3>
+
+      </div>
+    </article>
+
+
+    <article class="persona-card">
+      <img src="1/mo.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>AARON PLATON PLATON (Mohamed)</h3>
+       <p><strong>Fecha de nacimiento:</strong>1993-12-13</p>
+<p><strong>Código Postal (CP):</strong> 52158</p>
+<p><strong>Manzana (Mza):</strong> 9</p>
+<p><strong>Calle:</strong>PRIV CAMINO REAL DE METEPEC</p>
+<p><strong>Colonia:</strong> COL SAN FRANCISCO COAXUSCO</p>
+<p><strong>Exterior:</strong> 109</p>
+<p><strong>CURP:</strong> PAPA931213HMCLLR05</p>
+<p><strong>CVE:</strong>PLPLAR93121315H000 </p>
+
+
+      </div>
+    </article>
+
+
+
+
+    <article class="persona-card">
+      <img src="1/hon.jpg" alt="Foto de María López" />
+    <div class="persona-info">
+        <h3>JACOBO LUVINOFF ORTIZ (El Pua o La Lavadora)</h3>
+       <p><strong>Fecha de nacimiento:</strong>1993-12-13</p>
+   <p><strong>Código Postal (CP):</strong> 52763</p>
+<p><strong>Calle:</strong>Hacienda del siervo </p>
+<p><strong>Colonia:</strong>Fracc Hacienda de las Palmas</p>
+<p><strong>Exterior:</strong> 28 int D 502</p>
+
+
+
+
+
+      </div>
+    </article>
+
+
+        <article class="persona-card">
+      <img src="1/er.jpeg" alt="Foto de María López" />
+    </article>
+    
+
+
+    <!-- Más tarjetas aquí -->
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="personas" tabindex="-1">
+  <h2>Compra con cheque ,fraude de transferencia, billetes falsos (Coyotes)</h2>
+  <div class="personas-grid">
+
+    <article class="persona-card">
+      <img src="1/an.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>ANUAR MENDEZ MENDEZ</h3>
+       <p><strong>Código Postal (CP):</strong> 64280</p>
+<p><strong>Calle:</strong>Río Gibraltar  </p>
+<p><strong>Colonia:</strong>Bernardo Reyes ,Monterrey, N.L.</p>
+<p><strong>Exterior:</strong> 2112</p>
+<p><strong>CURP:</strong> MEMA830920HSLNNN03</p>
+      </div>
+    </article>
+
+
+
+ <article class="persona-card">
+      <img src="1/lo.jpeg" alt="Foto de María López" />
+  <div class="persona-info">
+        <h3>LORENZO MENDEZ MENDEZ</h3>
+       <p><strong>Código Postal (CP):</strong> 64368</p>
+<p><strong>Manzana (Mza):</strong> 46</p>
+<p><strong>Calle:</strong>Rincón de Las Cumbres </p>
+<p><strong>Colonia:</strong>Rincón de Las Cumbres Monterrey, N.L.</p>
+<p><strong>Exterior: </strong> 392</p>
+<p><strong>CURP:MEML751028HJCNNR00</strong> </p>
+      </div>
+    </article>
+
+ <article class="persona-card">
+      <img src="1/costi.jpg" alt="Foto de María López" />
+  <div class="persona-info">
+        <h3>Evangelina Costich Rivero</h3>
+       <p><strong>Código Postal (CP):</strong> 07730</p>
+<p><strong>Calle:</strong> Mar Caribe 1909</p>
+<p><strong>Colonia:</strong> Bernardo Reyes , Monterrey, N.L.</p>
+<p><strong>Exterior: </strong> 1909</p>
+<p><strong>CURP:BOSM930224MDFSRR02</strong> </p>
+<p><strong>CVE:BSSRMR93022409M400</strong> </p>
+      </div>
+    </article>
+
+       <article class="persona-card">
+      <img src="1/za.jpg" alt="Foto de María López" />
+  
+    </article>
+       <article class="persona-card">
+      <img src="1/za5.jpg" alt="Foto de María López" />
+  
+    </article>
+       <article class="persona-card">
+      <img src="1/za4.jpg" alt="Foto de María López" />
+  
+    </article>
+       <article class="persona-card">
+      <img src="1/za3.jpg" alt="Foto de María López" />
+  
+    </article>
+       <article class="persona-card">
+      <img src="1/za2.jpg" alt="Foto de María López" />
+  
+    </article>
+       <article class="persona-card">
+      <img src="1/za1.jpg" alt="Foto de María López" />
+  
+    </article>
+  
+     <article class="persona-card">
+      <img src="1/anzy.jpeg" alt="Foto de María López" />
+  
+    </article>
+    
+   
+     <article class="persona-card">
+      <img src="1/11.jpeg" alt="Foto de María López" />
+  
+    </article>
+     
+    <article class="persona-card">
+      <img src="1/8.jpeg" alt="Foto de María López" />
+  
+    </article>
+ <article class="persona-card">
+      <img src="1/anu.jpeg" alt="Foto de María López" />
+  
+    </article>
+       <article class="persona-card">
+      <img src="1/14.jpeg" alt="Foto de María López" />
+  
+    </article>
+    <article class="persona-card">
+      <img src="1/yun.jpg" alt="Foto de María López" />
+  
+    </article>
+    <article class="persona-card">
+      <img src="1/yun2.jpg" alt="Foto de María López" />
+  
+    </article>
+    <article class="persona-card">
+      <img src="1/yun4.jpg" alt="Foto de María López" />
+  
+    </article>
+    <article class="persona-card">
+      <img src="1/yun5.jpg" alt="Foto de María López" />
+  
+    </article>
+
+
+
+
+<section id="personas" tabindex="-1">
+  <h2>Hertz y Yamaha</h2>
+  <div class="personas-grid">
+
+    <article class="persona-card">
+      <img src="1/ado.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Abraham churon (El adobado)</h3>
+       <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Manzana (Mza):</strong> 29</p>
+<p><strong>Calle:</strong> Julio García 17</p>
+<p><strong>Colonia:</strong> Cd. Satélite, Naucalpan de Juárez</p>
+<p><strong>Exterior:</strong>17</p>
+      </div>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/adob.png" alt="Foto de Juan Pérez" />
+      <div class="persona-info">
+        <h3>Esposa del adobado </h3>
+ <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Manzana (Mza):</strong> 29</p>
+<p><strong>Calle:</strong>  Julio García 17</p>
+<p><strong>Colonia:</strong> Cd. Satélite, Naucalpan de Juárez</p>
+<p><strong>Exterior:</strong>17</p>
+
+      </div>
+    </article>
+
+
+    <article class="persona-card">
+      <img src="1/romina.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Romina churon (hija)</h3>
+ <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Manzana (Mza):</strong> 29</p>
+<p><strong>Calle:</strong>  Julio García 17</p>
+<p><strong>Colonia:</strong> Cd. Satélite, Naucalpan de Juárez</p>
+<p><strong>Exterior:</strong>17</p>
+
+
+      </div>
+    </article>
+
+</article>
+
+    <article class="persona-card">
+      <img src="1/adoba.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Benjamin churon (HIJO con su hermana y madre)</h3>
+     <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Manzana (Mza):</strong> 29</p>
+<p><strong>Calle:</strong>  Julio García 17</p>
+<p><strong>Colonia:</strong> Cd. Satélite, Naucalpan de Juárez</p>
+<p><strong>Exterior:</strong>17</p>
+
+
+      </div>
+    </article>
+     <article class="persona-card">
+      <img src="1/mana.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>(Hermana)</h3>
+    </div>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/adobad.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>(HIJO)</h3>
+    </div>
+    </article>
+    <article class="persona-card">
+      <img src="1/adobado2.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>(HIJA)</h3>
+    </div>
+    </article>
+  <article class="persona-card">
+      <img src="1/arco.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Lavan todo el dinero de las extorsiones y fraudes de la comunidad de satelite con con su restaurante (Los arcos suc. satelite) que siempre esta vacio</h3>
+    </div>
+    </article>
+     <article class="persona-card">
+      <img src="1/adobe2.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3></h3>
+    </div>
+    </article>
+     <article class="persona-card">
+      <img src="1/adobe1.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3></h3>
+    </div>
+    </article>
+     <article class="persona-card">
+      <img src="1/adobe.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3></h3>
+    </div>
+    </article>
+     <article class="persona-card">
+      <img src="1/ado1.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3></h3>
+    </div>
+    </article>
+     <article class="persona-card">
+      <img src="1/ado2.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3></h3>
+    </div>
+    </article>
+     <article class="persona-card">
+      <img src="1/ado3.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3></h3>
+    </div>
+    </article>
+    <!-- Más tarjetas aquí -->
+  </div>
+</section>
+<section id="personas" tabindex="-1">
+  <h2>General Motors y Castores</h2>
+  <div class="personas-grid">
+
+    <article class="persona-card">
+      <img src="1/colin.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Rubi Avila Montes</h3>
+        <p><strong>Fecha de nacimiento:</strong> 1982-07-20</p>
+       <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Calle:</strong>Federico Gamboa </p>
+<p><strong>Colonia:</strong> Ciudad Satelite </p>
+<p><strong>Exterior:</strong> #4</p>
+<p><strong>CURP:</strong> AIMR820720MSLVNB07</p>
+<p><strong>CVE:</strong> AVMNRB82072015M700</p>
+      </div>
+    </article>
+
+
+    <article class="persona-card">
+      <img src="1/honduras.jpg" alt="Foto de Juan Pérez" />
+      <div class="persona-info">
+        <h3>Juan Manuel Salinas Tafil  (El honduras)</h3>
+<p><strong>Fecha de nacimiento:</strong> 1981-07-28</p>
+       <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Calle:</strong>Federico Gamboa </p>
+<p><strong>Colonia:</strong> Ciudad Satelite </p>
+<p><strong>Exterior:</strong> #4</p>
+<p><strong>CURP:</strong> SATJ810728HPLLFN01</p>
+<p><strong>CVE:</strong> SLTFJN81072821H400</p>
+
+      </div>
+    </article>
+
+
+    <article class="persona-card">
+      <img src="1/da.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>David Salinas Avila  (Gemelo) </h3>
+       <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Calle:</strong>Federico Gamboa </p>
+<p><strong>Colonia:</strong> Ciudad Satelite </p>
+<p><strong>Exterior:</strong> #4</p>
+
+
+      </div>
+    </article>
+
+</article>
+
+    <article class="persona-card">
+      <img src="1/de.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Daniel Salinas Avila  (Gemelo) </h3>
+       <p><strong>Código Postal (CP):</strong> 53100</p>
+<p><strong>Calle:</strong>Federico Gamboa </p>
+<p><strong>Colonia:</strong> Ciudad Satelite </p>
+<p><strong>Exterior:</strong> #4</p>
+
+
+      </div>
+    </article>
+    
+
+    <article class="persona-card">
+      <img src="1/dai.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Emmanuel Salinas Avila  (Saulo)</h3>
+       <p><strong>Código Postal (CP):</strong> 64280</p>
+<p><strong>Calle:</strong>C. Río Tamesí 2008</p>
+<p><strong>Colonia:</strong>  Bernardo Reyes , Monterrey, N.L. </p>
+<p><strong>Exterior:</strong> 2008</p>
+      </div>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/q.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Sherry Fabiola Mendez Montes  (Esposa de Saulo)</h3>
+       <p><strong>Código Postal (CP):</strong> 64280</p>
+<p><strong>Calle:</strong>C. Mar Caribe 1909</p>
+<p><strong>Colonia:</strong> Bernardo Reyes , Monterrey, N.L.
+</p>
+<p><strong>Exterior:</strong> 1909</p>
+
+
+      </div>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/puto.jpg" alt="Foto de María López" />
+  <div class="persona-info">
+        <h3>david y Esposa con sus hijos autistas</h3>
+
+
+      </div>
+    </article>
+
+
+   <article class="persona-card">
+      <img src="1/puta.png" alt="Foto de María López" />
+  
+    </article>   <article class="persona-card">
+      <img src="1/put.jpg" alt="Foto de María López" />
+  
+    </article>
+      <article class="persona-card">
+      <img src="1/gemel.jpeg" alt="Foto de María López" />
+  
+    </article>
+
+    <!-- Más tarjetas aquí -->
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section id="personas" tabindex="-1">
+  <h2>Gobierno</h2>
+  <div class="personas-grid">
+
+    <article class="persona-card">
+      <img src="1/julupe2.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Oscar Eduardo Gomes Polanco  (Chele julupesty)</h3>
+
+<p><strong>Fecha de nacimiento:</strong> 1984-03-08</p>
+       <p><strong>Código Postal (CP):</strong> 52930</p>
+<p><strong>Calle:</strong> Cda. Lago Borneo 8, Cdad. López Mateos, Méx.</p>
+<p><strong>Colonia:</strong>Residencial Chiluca</p>
+<p><strong>Exterior:</strong> 8</p>
+      </div>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/harry.png" alt="Foto de Juan Pérez" />
+      <div class="persona-info">
+        <h3>Harry Gomes Polanco </h3>
+
+<p><strong>Fecha de nacimiento:</strong> 1981-12-20</p>
+       <p><strong>Código Postal (CP):</strong> 52930</p>
+<p><strong>Calle:</strong> Cda. Lago Borneo 8, Cdad. López Mateos, Méx.</p>
+<p><strong>Colonia:</strong>Residencial Chiluca</p>
+<p><strong>Exterior:</strong> 8</p>
+
+
+      </div>
+    </article>
+
+
+    <article class="persona-card">
+      <img src="1/tony.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Tony Gomes Polanco (Tony julupesty)</h3>
+       <p><strong>Fecha de nacimiento:</strong> 1985-09-10</p>
+       <p><strong>Código Postal (CP):</strong> 52930</p>
+<p><strong>Calle:</strong> Cda. Lago Borneo 8, Cdad. López Mateos, Méx.</p>
+<p><strong>Colonia:</strong>Residencial Chiluca</p>
+<p><strong>Exterior:</strong> 8</p>
+
+
+      </div>
+    </article>
+
+</article>
+
+    <article class="persona-card">
+      <img src="1/lepe6.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Marcos Gomes Polanco (Pinocho a la derecha)</h3>
+       <p><strong>Código Postal (CP):</strong> 52930</p>
+<p><strong>Calle:</strong> Cda. Lago Borneo 8, Cdad. López Mateos, Méx.</p>
+<p><strong>Colonia:</strong>Residencial Chiluca</p>
+<p><strong>Exterior:</strong> 8</p>
+
+
+      </div>
+    </article>
+    
+
+    <article class="persona-card">
+      <img src="1/chi.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>chicho julupesty (hija de pinocho)</h3>
+    
+
+
+      </div>
+    </article>
+   <article class="persona-card">
+      <img src="1/lepe5.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Azul julupesty(hija de chele) con el secuestrador El boto julupesty y su papa</h3>
+    
+
+
+      </div>
+    </article>
+
+   <article class="persona-card">
+      <img src="1/lepe3.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Lepe (julupesty)</h3>
+    
+
+
+      </div>
+    </article>
+
+
+
+
+       <article class="persona-card">
+      <img src="1/lepe1.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Danilo Julupesty Jeffimo y su papa</h3>
+    
+
+
+      </div>
+    </article>
+
+
+       <article class="persona-card">
+      <img src="1/hija.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Hija de harry (bizca)</h3>
+    
+
+
+      </div>
+    </article>
+     <article class="persona-card">
+      <img src="1/chele1.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Hijos de chele </h3>
+      </div>
+    </article>
+        <article class="persona-card">
+      <img src="1/chele2.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Hijos de chele </h3>
+      </div>
+    </article>
+        <article class="persona-card">
+      <img src="1/chele3.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Hijos de chele </h3>
+      </div>
+    </article>
+
+       <article class="persona-card">
+      <img src="1/lepe2.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Hijo de tony julupesty</h3>
+    
+
+
+      </div>
+    </article>
+       <article class="persona-card">
+      <img src="1/lepe7.png" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Nueva Generacion Julupesty</h3>
+    
+
+
+      </div>
+    </article>
+       <article class="persona-card">
+      <img src="1/julu.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Danilo julupesty y su primo </h3>
+    
+
+
+      </div>
+    </article>
+    <!-- Más tarjetas aquí -->
+  </div>
+</section>
+
+
+
+
+
+
+<section id="personas" tabindex="-1">
+  <h2>Honda</h2>
+  <div class="personas-grid">
+
+    <article class="persona-card">
+      <img src="1/d.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Dayana Luvinoff Churon (Esposa de Aaron)</h3>
+        <p><strong>Fecha de nacimiento:</strong> 1992-03-23</p>
+
+       <p><strong>Código Postal (CP):</strong> 52763</p>
+<p><strong>Calle:</strong>Hacienda del siervo </p>
+<p><strong>Colonia:</strong>Fracc Hacienda de las Palmas</p>
+<p><strong>Exterior:</strong> 28 int D 502</p>
+<p><strong>CURP:</strong> LUCD940419MDFVHY05</p>
+      </div>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/sam.jpeg" alt="Foto de Juan Pérez" />
+      <div class="persona-info">
+        <h3>Samuel Luvinoff Churon</h3>
+<p><strong>Fecha de nacimiento:</strong> 1992-03-23</p>
+<p><strong>Sexo:</strong> H</p>
+<p><strong>Código Postal (CP):</strong> 52763</p>
+<p><strong>Calle:</strong> C 23 DE SEPTIEMBRE</p>
+<p><strong>Colonia:</strong> COL LOMAS DEL CHAMIZAL</p>
+
+<p><strong>Exterior:</strong> #9</p>
+<p><strong>CURP:</strong> LUCS920323HDFVHM05</p>
+<p><strong>CVE:</strong> LVCHSM92032309H500</p>
+
+      </div>
+    </article>
+
+
+    <article class="persona-card">
+      <img src="1/mo.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>AARON PLATON PLATON (Mohamed)</h3>
+       <p><strong>Fecha de nacimiento:</strong>1993-12-13</p>
+<p><strong>Código Postal (CP):</strong> 52158</p>
+<p><strong>Manzana (Mza):</strong> 9</p>
+<p><strong>Calle:</strong>PRIV CAMINO REAL DE METEPEC</p>
+<p><strong>Colonia:</strong> COL SAN FRANCISCO COAXUSCO</p>
+<p><strong>Exterior:</strong> 109</p>
+<p><strong>CURP:</strong> PAPA931213HMCLLR05</p>
+<p><strong>CVE:</strong>PLPLAR93121315H000 </p>
+
+
+      </div>
+    </article>
+
+
+
+
+    <article class="persona-card">
+      <img src="1/hon.jpg" alt="Foto de María López" />
+    <div class="persona-info">
+        <h3>JACOBO LUVINOFF ORTIZ (El Pua o La Lavadora)</h3>
+       <p><strong>Fecha de nacimiento:</strong>1993-12-13</p>
+   <p><strong>Código Postal (CP):</strong> 52763</p>
+<p><strong>Calle:</strong>Hacienda del siervo </p>
+<p><strong>Colonia:</strong>Fracc Hacienda de las Palmas</p>
+<p><strong>Exterior:</strong> 28 int D 502</p>
+
+
+
+
+
+      </div>
+    </article>
+
+
+        <article class="persona-card">
+      <img src="1/er.jpeg" alt="Foto de María López" />
+    </article>
+    
+
+
+    <!-- Más tarjetas aquí -->
+  </div>
+</section>
+<section id="personas" tabindex="-1">
+  <h2>Pemex ,tinacos y aire acondicionado</h2>
+  <div class="personas-grid">
+
+    <article class="persona-card">
+      <img src="1/pe.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>CRISTINA ARLET CIORUM CIORUM</h3>
+        <p><strong>Fecha de nacimiento:</strong> 1989-09-23</p>
+
+       <p><strong>Código Postal (CP):</strong> 38060</p>
+<p><strong>Calle:</strong> Av Arboledas 405, </p>
+<p><strong>Colonia:</strong> Las Arboledas,  Celaya, Gto.</p>
+<p><strong>Exterior:</strong> 405s</p>
+
+<p><strong>CURP:</strong> CICC890923MDGRRR02</p>
+<p><strong>CVE:</strong> CRCRCR89092310M500</p>
+      </div>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/peme.jpeg" alt="Foto de Juan Pérez" />
+      <div class="persona-info">
+        <h3>AVILA CIORUM MONTSERRAT</h3>
+<p><strong>Fecha de nacimiento:</strong> 2003-05-27</p>
+
+
+<p><strong>Código Postal (CP):</strong> 54054</p>
+<p><strong>Calle:</strong> Madrid 28</p>
+<p><strong>Colonia:</strong>Habit.jardines de Bella Vista,  Tlalnepantla, Méx.</p>
+<p><strong>Exterior:</strong> 28</p>
+<p><strong>RFC:</strong> AICM030527EK8</p>
+<p><strong>CURP:</strong> AICM030527MMCVRNA2</p>
+
+      </div>
+    </article>
+
+
+    <article class="persona-card">
+      <img src="1/maria.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Emmanuel Avila Ciorum  (memel)</h3>
+
+<p><strong>Código Postal (CP):</strong> 36782</p>
+<p><strong>Calle:</strong>C. Crisolito, </p>
+<p><strong>Colonia:</strong>  Fraccionamiento Pedregal de San Juan, Gto.</p>
+<p><strong>Exterior:</strong> s/n</p>
+
+
+
+      </div>
+    </article>
+
+</article>
+
+    <article class="persona-card">
+      <img src="1/tit.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>SHERLY CIORON CIORON</h3>
+       <p><strong>Fecha de nacimiento:</strong> 1982-05-13</p>
+<p><strong>Código Postal (CP):</strong> 38097</p>
+<p><strong>Calle:</strong> Volcán 212</p>
+<p><strong>Colonia:</strong>  Bosques del Sol, Celaya, Gto</p>
+<p><strong>Exterior:</strong> 212</p>
+<p><strong>CURP:</strong> </p>
+
+
+      </div>
+    </article>
+    
+
+    <article class="persona-card">
+      <img src="1/pemex1.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+<h3>DAVID AVILA MUNOZ (TETO)</h3>
+<p><strong>Fecha de nacimiento:</strong> 1987-04-07</p>
+<p><strong>Código Postal (CP):</strong> 36786</p>
+<p><strong>Calle:</strong> Clementina de Deschamps Escudero 123</p>
+<p><strong>Colonia:</strong>  Villa Petrolera, Salamanca</p>
+<p><strong>Exterior:</strong> 123</p>
+<p><strong>CURP:</strong> AIMD870407HMCVXV03</p>
+      </div>
+    </article>
+
+        <article class="persona-card">
+      <img src="1/ti.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+<h3>Ashley Fernanda Avila muñoz</h3>
+<p><strong>Fecha de nacimiento:</strong> 1987-04-07</p>
+<p><strong>Código Postal (CP):</strong> 36786</p>
+<p><strong>Calle:</strong> Clementina de Deschamps Escudero 123</p>
+<p><strong>Colonia:</strong>  Villa Petrolera, Salamanca</p>
+<p><strong>Exterior:</strong> 123</p>
+¡      </div>
+    </article>
+
+
+     <article class="persona-card">
+      <img src="1/perra.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+<h3> (EL TETO) ESTAFADOR MEDIOCRE QUE SE OSTENTA COMO INGENIERO CON LA PRIMARIA TRUNCA</h3>
+
+    </article>
+
+         <article class="persona-card">
+      <img src="1/tali.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+<h3> (EL TETO) Con el hermano de ZHAY BOSQUES SIORON Y JESUS AVILA (IZUAN AVILA ) HERMANO DE JOSE EDUARDO AVILA LOPEZ (TALIBAN) ,BALACEADO EN CAMPECHE POR EXTORCIONAR </h3>
+
+    </article>
+
+         <article class="persona-card">
+      <img src="1/PUTAS.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+<h3> ABUELA DE EMMANUEL AVILA CIORUM Y TIA , AMBAS MADRE Y HERMANA DE MAXIMILIANO CIORON ROJAS </h3>
+
+    </article>
+
+    <article class="persona-card">
+      <img src="1/pem1.jpg" alt="Foto de María López" />
+     <h3>Socio David Bulbu</h3>
+    </article>   <article class="persona-card">
+      <img src="1/pem2.jpg" alt="Foto de María López" />
+      <h3>Socio David Bulbu</h3>
+    </article>
+    <!-- Más tarjetas aquí -->
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section id="personas" tabindex="-1">
+  <h2>Maquinaria de construccion y reparaciones</h2>
+  <div class="personas-grid">
+
+    <article class="persona-card">
+      <img src="1/eliza.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Eliza Ciorum Panin (Ex presidiaria)</h3>
+       <p><strong>Código Postal (CP):</strong> 03104</p>
+<p><strong>Calle:</strong> José Ignacio Bartolache #1812, , CDMX</p>
+<p><strong>Colonia:</strong> Col del Valle Sur Ciudad de México</p>
+<p><strong>Exterior:</strong> #1812 int 3</p>
+      </div>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/bisco.jpeg" alt="Foto de Juan Pérez" />
+      <div class="persona-info">
+        <h3>Maximiliano Cioron Rojas (Isuan)</h3>
+<p><strong>Fecha de nacimiento:</strong> 1992-04-04</p>
+<p><strong>Calle:</strong> Guadalupe victoria 211</p>
+<p><strong>Colonia:</strong> Los cedros , metepec, toluca</p>
+<p><strong>Exterior:</strong>211</p>
+<p><strong>CURP:</strong> CIRM920404HVZRJX04</p>
+<p><strong>CVE:</strong> CRRJMX92040430H800</p>
+
+      </div>
+    </article>
+
+
+    <article class="persona-card">
+      <img src="1/bisca.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Ana Paula Cioron Rojas (bizcoho)</h3>
+       <p><strong>Fecha de nacimiento:</strong> 1991-03-11</p>
+<p><strong>Código Postal (CP):</strong> 52780</p>
+<p><strong>Calle:</strong> Fuentes del MIrador #56 </p>
+<p><strong>Colonia:</strong> Lomas de tecamachalco, Naucalpan</p>
+<p><strong>Exterior:</strong>56</p>
+<p><strong>CURP:</strong>CIRA910311MVZRJN08 </p>
+
+
+      </div>
+    </article>
+
+</article>
+
+    <article class="persona-card">
+      <img src="1/regina.jpeg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>Ana Regina Cioron Rojas (chita)</h3>
+       <p><strong>Fecha de nacimiento:</strong> 1989-03-31</p>
+<p><strong>Calle:</strong> Pestalozzi #1029 int 301 </p>
+<p><strong>Colonia:</strong> Del vlle , Cuauhtemoc, CDMX</p>
+<p><strong>Exterior:</strong>1029 INT 301</p>
+<p><strong>CURP:</strong>CIRA890331MVZRJN08 </p>
+<p><strong>CVE:</strong>CRRJAN89033130M700 </p>
+
+<p><strong>CURP:</strong> </p>
+
+
+      </div>
+    </article>
+    
+       <article class="persona-card">
+      <img src="1/preso.jpg" alt="Foto de María López" />
+      <h3>Tio preso por extorsion en el reclusorio norte </h3>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/nina1.jpg" alt="Foto de María López" />
+     
+         </article>
+
+     <article class="persona-card">
+      <img src="1/nina.jpg" alt="Foto de María López" />
+     
+    </article>
+   
+     <article class="persona-card">
+      <img src="1/biz.jpeg" alt="Foto de María López" />
+     
+    </article>
+       <article class="persona-card">
+      <img src="1/po.jpeg" alt="Foto de María López" />
+     
+    </article>
+     <article class="persona-card">
+      <img src="1/bizcos.jpg" alt="Foto de María López" />
+     
+    </article>
+     <article class="persona-card">
+      <img src="1/bizcos1.jpg" alt="Foto de María López" />
+     
+    </article>
+    <article class="persona-card">
+      <img src="1/bizcos8.jpg" alt="Foto de María López" />
+     
+    </article>
+    <!-- Más tarjetas aquí -->
+  </div>
+</section>
+
+
+
+
+
+<section id="personas" tabindex="-1">
+  <h2>Programadores de las paginas web</h2>
+  <div class="personas-grid">
+
+    <article class="persona-card">
+      <img src="1/ra.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>RAFAEL DOMINGUEZ HERNANDEZ</h3>
+        <p><strong>Fecha de nacimiento:</strong>1974-06-07</p>
+
+       <p><strong>Código Postal (CP):</strong> 07040</p>
+<p><strong>Calle:</strong>CDA DE EMILIANO ZAPATA  </p>
+<p><strong>Colonia:</strong>PBLO DE ATZACOALCO,GUSTAVO A. MADERO,CDMX</p>
+<p><strong>Exterior:</strong>  33 EDIF B INT 301 </p>
+<p><strong>CURP:</strong> DOHR740607HDFMRF06</p>
+<p><strong>CVE:</strong> LVCHSM92032309H500</p>
+
+      </div>
+    </article>
+
+    <article class="persona-card">
+      <img src="1/ra1.jpg" alt="Foto de Juan Pérez" />
+      <div class="persona-info">
+        <h3>sicom web (www.sicomweb.com.mx/)</h3>
+
+<p><strong>Código Postal (CP):</strong> 52763</p>
+<p><strong>Calle:</strong>100 FUEGOS #691</p>
+<p><strong>Colonia:</strong>LINDAVISTA ,CDMX</p>
+
+<p><strong>Exterior:</strong> #691</p>
+
+
+      </div>
+    </article>
+
+ <article class="persona-card">
+      <img src="1/ra5.png" alt="Foto de María López" />
+    </article>
+      <article class="persona-card">
+      <img src="1/ra7.png" alt="Foto de María López" />
+    </article>
+     <article class="persona-card">
+      <img src="1/ra8.png" alt="Foto de María López" />
+    </article>
+    <article class="persona-card">
+      <img src="1/ra2.jpg" alt="Foto de María López" />
+      <div class="persona-info">
+        <h3>FRANCISCO IVAN RODRIGUEZ HERNANDEZ</h3>
+       <p><strong>Fecha de nacimiento:</strong>   1984-12-05</p>
+<p><strong>Código Postal (CP):</strong> 02230</p>
+<p><strong>Manzana (Mza):</strong> 14</p>
+<p><strong>Calle:</strong>C MATLACOATL 80 CONJ B EDIF</p>
+<p><strong>Colonia:</strong> COL SANTA BARBARA</p>
+<p><strong>Exterior:</strong> 7 INT 401</p>
+<p><strong>CURP:</strong> ROHF841205HDFDRR03</p>
+<p><strong>CVE:</strong>RDHRFR84120509H700 </p>
+
+
+      </div>
+    </article>
+
+
+
+
+    <article class="persona-card">
+      <img src="1/ra3.jpg" alt="Foto de María López" />
+    <div class="persona-info">
+        <h3>roms publicity en facebook</h3>
+      
+
+
+
+
+      </div>
+    </article>
+
+
+        <article class="persona-card">
+      <img src="1/te1.png" alt="Foto de María López" />
+    </article>
+    
+  <article class="persona-card">
+      <img src="1/te2.png" alt="Foto de María López" />
+    </article>
+    
+
+    <!-- Más tarjetas aquí -->
+  </div>
+</section>
+
+
+
+
+
+<style>
+  .personas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 20px;
+  }
+  .persona-card {
+    background-color: #000;
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    padding: 15px;
+    width: 220px;
+    box-shadow: 0 0 10px #00ff00;
+    user-select: none;
+  }
+  .persona-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #00ff00;
+    border-radius: 6px;
+  }
+  .persona-info {
+    margin-top: 12px;
+    color: #00ff00;
+    font-family: monospace;
+  }
+  .persona-info h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+  }
+  .persona-info p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 600px) {
+    .personas-grid {
+      justify-content: center;
+    }
+    .persona-card {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+</style><h3>Agradecemos cualquier informacion relevante ,ponemos a su disposicion nuestro correo sindicatoliberta@proton.me (SIN D)</h3>
+
+<h3>Los invitamos a compartir esta informacion hasta que llegue a manos de todos los interesados, en espera de una pronta justicia social </h3>
+ 
+</body>
+</html>
+
+
+
+
